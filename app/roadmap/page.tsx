@@ -11,6 +11,8 @@ import {
   Share2,
   Sparkles,
   AlertCircle,
+  Trophy,
+  PartyPopper,
 } from "lucide-react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
@@ -144,12 +146,48 @@ function RoadmapContent() {
       : [...completed, id];
 
     if (!isCompleted) {
-      confetti({
-        particleCount: 100,
-        spread: 70,
-        origin: { y: 0.6 },
-        colors: ["#10b981", "#34d399", "#059669"],
-      });
+      const isLastStep = roadmap && newCompleted.length === roadmap.length;
+
+      if (isLastStep) {
+        const duration = 3 * 1000;
+        const animationEnd = Date.now() + duration;
+        const defaults = {
+          startVelocity: 30,
+          spread: 360,
+          ticks: 60,
+          zIndex: 0,
+        };
+
+        const randomInRange = (min: number, max: number) =>
+          Math.random() * (max - min) + min;
+
+        const interval: any = setInterval(function () {
+          const timeLeft = animationEnd - Date.now();
+
+          if (timeLeft <= 0) {
+            return clearInterval(interval);
+          }
+
+          const particleCount = 50 * (timeLeft / duration);
+          confetti({
+            ...defaults,
+            particleCount,
+            origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
+          });
+          confetti({
+            ...defaults,
+            particleCount,
+            origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
+          });
+        }, 250);
+      } else {
+        confetti({
+          particleCount: 100,
+          spread: 70,
+          origin: { y: 0.6 },
+          colors: ["#10b981", "#34d399", "#059669"],
+        });
+      }
     }
 
     setCompleted(newCompleted);
@@ -171,15 +209,6 @@ function RoadmapContent() {
     <main className="min-h-screen bg-slate-50 dark:bg-slate-950 font-sans flex flex-col items-center transition-colors duration-300">
       {/* Header */}
       <Navbar className="max-w-4xl">
-        <button className="flex items-center gap-2 text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
-          <Share2 className="w-4 h-4" /> Share
-        </button>
-        <button
-          onClick={() => window.print()}
-          className="flex items-center gap-2 text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800"
-        >
-          <Download className="w-4 h-4" /> Export
-        </button>
       </Navbar>
 
       <div className="flex-1 w-full max-w-3xl mx-auto px-6 py-12 flex flex-col">
@@ -208,6 +237,18 @@ function RoadmapContent() {
               <p className="text-sm text-slate-500 dark:text-slate-400">
                 {completed.length} of {currentSteps.length} milestones
                 completed. Keep going!
+              </p>
+            </div>
+          )}
+
+          {!loading && !error && currentSteps.length > 0 && (
+            <div className="mt-6 p-4 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl flex items-start gap-3">
+              <AlertCircle className="w-5 h-5 text-amber-600 dark:text-amber-500 shrink-0 mt-0.5" />
+              <p className="text-sm text-amber-800 dark:text-amber-300">
+                <strong>Note:</strong> AI can sometimes estimate times
+                incorrectly or provide broken links. If a resource link is
+                invalid, try searching for it manually on YouTube or other
+                platforms by its name.
               </p>
             </div>
           )}
@@ -328,6 +369,37 @@ function RoadmapContent() {
                 </div>
               );
             })}
+
+            {progress === 100 && (
+              <div
+                className="relative pl-8 sm:pl-12 opacity-100 animate-in zoom-in duration-500 fill-mode-both"
+                style={{ animationDelay: `${currentSteps.length * 100}ms` }}
+              >
+                <div className="absolute -left-[21px] top-6 bg-slate-50 dark:bg-slate-950 p-1 rounded-full z-10">
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-r from-amber-400 to-orange-500 flex items-center justify-center shadow-lg shadow-amber-500/30">
+                    <Trophy className="w-4 h-4 text-white" />
+                  </div>
+                </div>
+
+                <div className="bg-gradient-to-br from-emerald-500 to-teal-600 p-8 rounded-2xl shadow-xl shadow-emerald-500/20 text-white text-center relative overflow-hidden">
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl -mr-16 -mt-16"></div>
+                  <div className="absolute bottom-0 left-0 w-32 h-32 bg-white/10 rounded-full blur-2xl -ml-16 -mb-16"></div>
+
+                  <div className="relative z-10 flex flex-col items-center">
+                    <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mb-6 backdrop-blur-sm border border-white/30">
+                      <PartyPopper className="w-8 h-8 text-white" />
+                    </div>
+                    <h2 className="text-2xl font-black tracking-tight mb-3">
+                      You are a Champion! 🏆
+                    </h2>
+                    <p className="text-emerald-50 font-medium text-lg max-w-lg leading-relaxed">
+                      You've conquered every step of this journey. All the hard
+                      work and dedication has paid off. Keep pushing boundaries!
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         )}
       </div>

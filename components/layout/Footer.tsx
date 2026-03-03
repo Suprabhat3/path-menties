@@ -1,96 +1,133 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import Link from "next/link";
+import {
+  Github,
+  Twitter,
+  Linkedin,
+  Mail,
+  MapPin,
+  Globe,
+  Heart,
+  X,
+} from "lucide-react";
 import Logo from "./Logo";
-import { Github, Twitter, Linkedin, Mail, ArrowRight } from "lucide-react";
 
 export default function Footer() {
+  const [showPricingAlert, setShowPricingAlert] = useState(false);
   const currentYear = new Date().getFullYear();
 
+  useEffect(() => {
+    if (showPricingAlert) {
+      const timer = setTimeout(() => setShowPricingAlert(false), 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [showPricingAlert]);
+
   return (
-    <footer className="w-full bg-slate-50 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 py-16 px-6 z-10 relative overflow-hidden">
+    <footer className="w-full bg-slate-50 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 pt-20 pb-10 px-6 relative z-10 overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-emerald-200 to-transparent"></div>
-      <div className="absolute -top-40 -right-40 w-96 h-96 bg-emerald-100/50 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
-      <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-teal-100/50 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
+      <div className="absolute -top-40 -right-40 w-96 h-96 bg-emerald-100/50 dark:bg-emerald-900/20 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
+      <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-teal-100/50 dark:bg-teal-900/20 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
           {/* Brand Column */}
-          <div className="lg:col-span-4 flex flex-col items-start gap-6">
-            <div className="bg-white/60 dark:bg-slate-900/60 p-2 rounded-xl backdrop-blur-sm border border-slate-200/50 dark:border-slate-800/50 shadow-sm">
+          <div className="lg:col-span-5 flex flex-col items-start gap-6 pr-4">
+            <div className="bg-white/60 dark:bg-slate-900/60 p-2 rounded-xl backdrop-blur-sm border border-slate-200/50 dark:border-slate-800/50 shadow-sm inline-block">
               <Logo showText={true} />
             </div>
-            <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-sm max-w-sm font-medium">
-              Stop guessing, start achieving. Let AI build your perfect,
-              personalized learning roadmap from absolute zero to mastery.
+            <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-[15px] font-medium max-w-[360px]">
+              Craft an industry-standard, well-optimized roadmap in minutes.
+              Stop guessing, start achieving. Let AI build your perfect learning
+              journey from absolute zero to mastery.
             </p>
-            <div className="flex items-center gap-4 mt-2">
-              <a
-                href="#"
-                className="w-10 h-10 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center justify-center text-slate-500 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 hover:border-emerald-200 dark:hover:border-emerald-800 hover:bg-emerald-50 dark:hover:bg-emerald-900/30 hover:shadow-sm transition-all duration-300"
+            <div className="flex items-center gap-3 pt-2">
+              <Link
+                href="https://x.com/Suprabhat_3"
+                target="_blank"
+                className="w-10 h-10 flex items-center justify-center bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-full text-slate-500 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 hover:border-emerald-200 dark:hover:border-emerald-800 hover:bg-emerald-50 dark:hover:bg-emerald-900/30 transition-all shadow-sm"
               >
                 <Twitter className="w-4 h-4" />
                 <span className="sr-only">Twitter</span>
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center justify-center text-slate-500 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 hover:border-emerald-200 dark:hover:border-emerald-800 hover:bg-emerald-50 dark:hover:bg-emerald-900/30 hover:shadow-sm transition-all duration-300"
+              </Link>
+              <Link
+                href="https://github.com/Suprabhat3"
+                target="_blank"
+                className="w-10 h-10 flex items-center justify-center bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-full text-slate-500 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 hover:border-emerald-200 dark:hover:border-emerald-800 hover:bg-emerald-50 dark:hover:bg-emerald-900/30 transition-all shadow-sm"
               >
                 <Github className="w-4 h-4" />
                 <span className="sr-only">GitHub</span>
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center justify-center text-slate-500 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 hover:border-emerald-200 dark:hover:border-emerald-800 hover:bg-emerald-50 dark:hover:bg-emerald-900/30 hover:shadow-sm transition-all duration-300"
+              </Link>
+              <Link
+                href="https://www.linkedin.com/in/suprabhatt"
+                target="_blank"
+                className="w-10 h-10 flex items-center justify-center bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-full text-slate-500 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 hover:border-emerald-200 dark:hover:border-emerald-800 hover:bg-emerald-50 dark:hover:bg-emerald-900/30 transition-all shadow-sm"
               >
                 <Linkedin className="w-4 h-4" />
                 <span className="sr-only">LinkedIn</span>
-              </a>
+              </Link>
             </div>
           </div>
 
-          {/* Links Columns */}
-          <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-3 gap-8">
-            <div className="flex flex-col gap-4">
-              <h3 className="font-bold text-slate-900 dark:text-slate-100 tracking-wide text-sm uppercase">
+          <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-8 pt-4">
+            {/* Product Column */}
+            <div className="space-y-6">
+              <h4 className="font-bold text-slate-900 dark:text-slate-100 tracking-wide uppercase text-sm">
                 Product
-              </h3>
-              <ul className="flex flex-col gap-3">
+              </h4>
+              <ul className="space-y-4 text-[15px] font-medium text-slate-600 dark:text-slate-400">
                 <li>
                   <Link
                     href="/generate"
-                    className="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
+                    className="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors inline-block"
                   >
-                    Generate Roadmap
+                    Roadmap Builder
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="#features"
-                    className="text-sm font-medium text-slate-600 hover:text-emerald-600 transition-colors"
+                    href="/ats-checker"
+                    className="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors inline-block"
                   >
-                    Features
+                    ATS Checker
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="#pricing"
-                    className="text-sm font-medium text-slate-600 hover:text-emerald-600 transition-colors"
+                    href="#templates"
+                    className="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors inline-block"
+                  >
+                    Templates
+                  </Link>
+                </li>
+                <li>
+                  <button
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setShowPricingAlert(true);
+                    }}
+                    className="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors inline-block cursor-pointer text-left focus:outline-none"
                   >
                     Pricing
-                  </Link>
+                  </button>
                 </li>
               </ul>
             </div>
 
-            <div className="flex flex-col gap-4">
-              <h3 className="font-bold text-slate-900 dark:text-slate-100 tracking-wide text-sm uppercase">
+            {/* Resources Column */}
+            <div className="space-y-6">
+              <h4 className="font-bold text-slate-900 dark:text-slate-100 tracking-wide uppercase text-sm">
                 Resources
-              </h3>
-              <ul className="flex flex-col gap-3">
+              </h4>
+              <ul className="space-y-4 text-[15px] font-medium text-slate-600 dark:text-slate-400">
                 <li>
                   <Link
-                    href="#"
-                    className="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
+                    href="https://blog.suprabhat.site"
+                    target="_blank"
+                    className="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors inline-block"
                   >
                     Blog
                   </Link>
@@ -98,15 +135,24 @@ export default function Footer() {
                 <li>
                   <Link
                     href="#"
-                    className="text-sm font-medium text-slate-600 hover:text-emerald-600 transition-colors"
+                    className="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors inline-block"
                   >
-                    Community
+                    Career Advice
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="#"
-                    className="text-sm font-medium text-slate-600 hover:text-emerald-600 transition-colors"
+                    href="https://hirementis.site"
+                    target="_blank"
+                    className="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors inline-block"
+                  >
+                    Interview Prep
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/help-center"
+                    className="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors inline-block"
                   >
                     Help Center
                   </Link>
@@ -114,39 +160,42 @@ export default function Footer() {
               </ul>
             </div>
 
-            <div className="col-span-2 sm:col-span-1 flex flex-col gap-4">
-              <h3 className="font-bold text-slate-900 dark:text-slate-100 tracking-wide text-sm uppercase">
-                Stay Updated
-              </h3>
-              <p className="text-sm text-slate-600 dark:text-slate-400 mb-2 font-medium">
-                Get the latest updates and learning resources.
-              </p>
-              <form className="flex flex-col gap-2">
-                <div className="relative">
-                  <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 dark:text-slate-500" />
-                  <input
-                    type="email"
-                    placeholder="Enter your email"
-                    className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg py-2.5 pl-10 pr-4 text-sm text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 transition-all placeholder:text-slate-400 dark:placeholder:text-slate-500 shadow-sm"
-                  />
-                </div>
-                <button
-                  type="button"
-                  className="w-full bg-slate-900 dark:bg-slate-50 hover:bg-slate-800 dark:hover:bg-slate-200 text-white dark:text-slate-900 rounded-lg py-2.5 text-sm font-semibold transition-colors flex items-center justify-center gap-2 group shadow-sm active:scale-[0.98]"
-                >
-                  Subscribe
-                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                </button>
-              </form>
+            {/* Contact Column */}
+            <div className="space-y-6 col-span-2 sm:col-span-1">
+              <h4 className="font-bold text-slate-900 dark:text-slate-100 tracking-wide uppercase text-sm">
+                Contact
+              </h4>
+              <ul className="space-y-4 text-[15px] font-medium text-slate-600 dark:text-slate-400">
+                <li className="flex items-start gap-3">
+                  <Mail className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" />
+                  <span>suprabhat.work@gmail.com</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Globe className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" />
+                  <span className="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+                    <a href="https://new.suprabhat.site" target="_blank">
+                      Portfolio
+                    </a>
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <MapPin className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" />
+                  <span>
+                    in a quiet place
+                    <br />
+                    somewhere on Earth
+                  </span>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="text-sm font-medium text-slate-500 dark:text-slate-400">
-            &copy; {currentYear} Path Menties. All rights reserved.
-          </div>
+          <p className="text-slate-500 dark:text-slate-400 text-sm font-medium">
+            © {currentYear} Path Menties. Built for excellence.
+          </p>
           <div className="flex items-center gap-6 text-sm font-medium text-slate-500 dark:text-slate-400">
             <Link
               href="/privacy-policy"
@@ -169,6 +218,39 @@ export default function Footer() {
           </div>
         </div>
       </div>
+
+      {/* Pricing Alert Toast */}
+      {showPricingAlert && (
+        <div className="fixed bottom-6 right-6 md:bottom-10 md:right-10 z-50 animate-in slide-in-from-bottom-8 fade-in duration-500">
+          <div className="bg-white dark:bg-slate-900 border border-emerald-200 dark:border-emerald-800 shadow-[0_20px_40px_-15px_rgba(16,185,129,0.2)] dark:shadow-[0_20px_40px_-15px_rgba(16,185,129,0.05)] rounded-2xl p-4 sm:p-5 flex items-start gap-4 max-w-sm relative overflow-hidden group">
+            {/* Background effects */}
+            <div className="absolute top-[-50%] right-[-20%] w-32 h-32 bg-emerald-400/20 dark:bg-emerald-500/10 rounded-full blur-2xl group-hover:bg-emerald-400/30 dark:group-hover:bg-emerald-500/20 transition-colors pointer-events-none"></div>
+            <div className="absolute bottom-[-20%] left-[-10%] w-20 h-20 bg-teal-400/20 dark:bg-teal-500/10 rounded-full blur-xl pointer-events-none"></div>
+
+            <div className="bg-gradient-to-br from-emerald-100 to-teal-100 dark:from-emerald-900/40 dark:to-teal-900/40 p-2.5 sm:p-3 rounded-xl shrink-0 relative z-10 border border-emerald-200/50 dark:border-emerald-800/50 shadow-sm">
+              <Heart className="w-5 h-5 fill-emerald-500 text-emerald-600 dark:text-emerald-400 drop-shadow-sm animate-pulse" />
+            </div>
+
+            <div className="flex-1 pr-6 relative z-10">
+              <h4 className="text-slate-900 dark:text-slate-100 font-bold text-sm sm:text-base mb-1 tracking-tight">
+                100% Free Forever
+              </h4>
+              <p className="text-slate-600 dark:text-slate-400 text-[13px] leading-relaxed font-medium">
+                PathFinder is an open initiative built for the community. Enjoy
+                full access without any paywalls or hidden fees!
+              </p>
+            </div>
+
+            <button
+              onClick={() => setShowPricingAlert(false)}
+              className="absolute top-3 right-3 text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-lg p-1 transition-colors z-20"
+              aria-label="Close alert"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          </div>
+        </div>
+      )}
     </footer>
   );
 }
