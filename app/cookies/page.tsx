@@ -6,25 +6,25 @@ export default function CookiesPolicy() {
   const lastUpdated = "March 2, 2026";
 
   return (
-    <div className="relative min-h-screen flex flex-col font-sans bg-slate-50 dark:bg-slate-950">
+    <div className="relative min-h-screen flex flex-col font-sans bg-white dark:bg-slate-950">
       <Navbar />
 
       <main className="flex-1 w-full max-w-4xl mx-auto px-6 py-24 md:py-32">
         <div className="mb-12 flex flex-col items-start gap-6">
-          <div className="w-16 h-16 bg-emerald-100 dark:bg-emerald-900/30 rounded-2xl flex items-center justify-center">
-            <Cookie className="w-8 h-8 text-emerald-600 dark:text-emerald-400" />
+          <div className="w-16 h-16 bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl flex items-center justify-center">
+            <Cookie className="w-8 h-8 text-slate-800 dark:text-slate-200" />
           </div>
           <div>
-            <h1 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-slate-100 tracking-tight mb-4">
+            <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-slate-100 tracking-tight mb-4 leading-tight">
               Cookie Policy
             </h1>
-            <p className="text-slate-500 dark:text-slate-400 font-medium">
+            <p className="text-slate-600 dark:text-slate-400 font-bold">
               Last updated: {lastUpdated}
             </p>
           </div>
         </div>
 
-        <div className="space-y-12 text-slate-600 dark:text-slate-400 leading-relaxed bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-8 md:p-12 shadow-sm">
+        <div className="space-y-12 text-slate-600 dark:text-slate-400 leading-relaxed bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-8 md:p-12 shadow-sm font-medium">
           <section className="space-y-4">
             <p>
               This Cookie Policy explains what cookies are and how we use them.
@@ -36,7 +36,8 @@ export default function CookiesPolicy() {
 
           <section className="space-y-4">
             <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-100 flex items-center gap-3">
-              <span className="text-emerald-500">1.</span> What Are Cookies?
+              <span className="text-emerald-600 dark:text-emerald-500">1.</span>{" "}
+              What Are Cookies?
             </h2>
             <p>
               Cookies are small data files that are placed on your computer or
@@ -56,7 +57,8 @@ export default function CookiesPolicy() {
 
           <section className="space-y-4">
             <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-100 flex items-center gap-3">
-              <span className="text-emerald-500">2.</span> How We Use Cookies
+              <span className="text-emerald-600 dark:text-emerald-500">2.</span>{" "}
+              How We Use Cookies
             </h2>
             <p>
               We use first party and third party cookies for several reasons.
@@ -66,7 +68,7 @@ export default function CookiesPolicy() {
             </p>
 
             <div className="mt-4 grid gap-4">
-              <div className="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50">
+              <div className="p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 shadow-sm">
                 <h3 className="font-bold text-slate-900 dark:text-slate-100 mb-2">
                   Essential Cookies
                 </h3>
@@ -77,7 +79,7 @@ export default function CookiesPolicy() {
                   steps and session authentication.
                 </p>
               </div>
-              <div className="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50">
+              <div className="p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 shadow-sm">
                 <h3 className="font-bold text-slate-900 dark:text-slate-100 mb-2">
                   Analytics and Preferences Cookies
                 </h3>
@@ -93,7 +95,8 @@ export default function CookiesPolicy() {
 
           <section className="space-y-4">
             <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-100 flex items-center gap-3">
-              <span className="text-emerald-500">3.</span> Local Storage
+              <span className="text-emerald-600 dark:text-emerald-500">3.</span>{" "}
+              Local Storage
             </h2>
             <p>
               In addition to cookies, we also use browser local storage to save
@@ -106,8 +109,8 @@ export default function CookiesPolicy() {
 
           <section className="space-y-4">
             <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-100 flex items-center gap-3">
-              <span className="text-emerald-500">4.</span> How to Control
-              Cookies
+              <span className="text-emerald-600 dark:text-emerald-500">4.</span>{" "}
+              How to Control Cookies
             </h2>
             <p>
               You have the right to decide whether to accept or reject cookies.

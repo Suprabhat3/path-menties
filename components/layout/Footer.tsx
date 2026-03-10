@@ -26,17 +26,12 @@ export default function Footer() {
   }, [showPricingAlert]);
 
   return (
-    <footer className="w-full bg-slate-50 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 pt-20 pb-10 px-6 relative z-10 overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-emerald-200 to-transparent"></div>
-      <div className="absolute -top-40 -right-40 w-96 h-96 bg-emerald-100/50 dark:bg-emerald-900/20 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
-      <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-teal-100/50 dark:bg-teal-900/20 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
-
+    <footer className="w-full bg-slate-100 dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 pt-20 pb-10 px-6 relative z-10 transition-colors duration-300">
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
           {/* Brand Column */}
           <div className="lg:col-span-5 flex flex-col items-start gap-6 pr-4">
-            <div className="bg-white/60 dark:bg-slate-900/60 p-2 rounded-xl backdrop-blur-sm border border-slate-200/50 dark:border-slate-800/50 shadow-sm inline-block">
+            <div className="bg-white dark:bg-slate-950 p-3 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm inline-block">
               <Logo showText={true} />
             </div>
             <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-[15px] font-medium max-w-[360px]">
@@ -48,25 +43,25 @@ export default function Footer() {
               <Link
                 href="https://x.com/Suprabhat_3"
                 target="_blank"
-                className="w-10 h-10 flex items-center justify-center bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-full text-slate-500 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 hover:border-emerald-200 dark:hover:border-emerald-800 hover:bg-emerald-50 dark:hover:bg-emerald-900/30 transition-all shadow-sm"
+                className="w-11 h-11 flex items-center justify-center bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-full text-slate-500 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 hover:border-emerald-500 dark:hover:border-emerald-500 hover:shadow-sm transition-all shadow-sm"
               >
-                <Twitter className="w-4 h-4" />
+                <Twitter className="w-5 h-5" />
                 <span className="sr-only">Twitter</span>
               </Link>
               <Link
                 href="https://github.com/Suprabhat3"
                 target="_blank"
-                className="w-10 h-10 flex items-center justify-center bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-full text-slate-500 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 hover:border-emerald-200 dark:hover:border-emerald-800 hover:bg-emerald-50 dark:hover:bg-emerald-900/30 transition-all shadow-sm"
+                className="w-11 h-11 flex items-center justify-center bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-full text-slate-500 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 hover:border-emerald-500 dark:hover:border-emerald-500 hover:shadow-sm transition-all shadow-sm"
               >
-                <Github className="w-4 h-4" />
+                <Github className="w-5 h-5" />
                 <span className="sr-only">GitHub</span>
               </Link>
               <Link
                 href="https://www.linkedin.com/in/suprabhatt"
                 target="_blank"
-                className="w-10 h-10 flex items-center justify-center bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-full text-slate-500 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 hover:border-emerald-200 dark:hover:border-emerald-800 hover:bg-emerald-50 dark:hover:bg-emerald-900/30 transition-all shadow-sm"
+                className="w-11 h-11 flex items-center justify-center bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-full text-slate-500 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 hover:border-emerald-500 dark:hover:border-emerald-500 hover:shadow-sm transition-all shadow-sm"
               >
-                <Linkedin className="w-4 h-4" />
+                <Linkedin className="w-5 h-5" />
                 <span className="sr-only">LinkedIn</span>
               </Link>
             </div>
@@ -167,11 +162,11 @@ export default function Footer() {
               </h4>
               <ul className="space-y-4 text-[15px] font-medium text-slate-600 dark:text-slate-400">
                 <li className="flex items-start gap-3">
-                  <Mail className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" />
+                  <Mail className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
                   <span>suprabhat.work@gmail.com</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <Globe className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" />
+                  <Globe className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
                   <span className="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
                     <a href="https://new.suprabhat.site" target="_blank">
                       Portfolio
@@ -179,7 +174,7 @@ export default function Footer() {
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <MapPin className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" />
+                  <MapPin className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
                   <span>
                     in a quiet place
                     <br />
@@ -193,10 +188,10 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-slate-500 dark:text-slate-400 text-sm font-medium">
+          <p className="text-slate-600 dark:text-slate-400 text-sm font-bold">
             © {currentYear} Path Menties. Built for excellence.
           </p>
-          <div className="flex items-center gap-6 text-sm font-medium text-slate-500 dark:text-slate-400">
+          <div className="flex items-center gap-6 text-sm font-bold text-slate-600 dark:text-slate-400">
             <Link
               href="/privacy-policy"
               className="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
@@ -222,20 +217,16 @@ export default function Footer() {
       {/* Pricing Alert Toast */}
       {showPricingAlert && (
         <div className="fixed bottom-6 right-6 md:bottom-10 md:right-10 z-50 animate-in slide-in-from-bottom-8 fade-in duration-500">
-          <div className="bg-white dark:bg-slate-900 border border-emerald-200 dark:border-emerald-800 shadow-[0_20px_40px_-15px_rgba(16,185,129,0.2)] dark:shadow-[0_20px_40px_-15px_rgba(16,185,129,0.05)] rounded-2xl p-4 sm:p-5 flex items-start gap-4 max-w-sm relative overflow-hidden group">
-            {/* Background effects */}
-            <div className="absolute top-[-50%] right-[-20%] w-32 h-32 bg-emerald-400/20 dark:bg-emerald-500/10 rounded-full blur-2xl group-hover:bg-emerald-400/30 dark:group-hover:bg-emerald-500/20 transition-colors pointer-events-none"></div>
-            <div className="absolute bottom-[-20%] left-[-10%] w-20 h-20 bg-teal-400/20 dark:bg-teal-500/10 rounded-full blur-xl pointer-events-none"></div>
-
-            <div className="bg-gradient-to-br from-emerald-100 to-teal-100 dark:from-emerald-900/40 dark:to-teal-900/40 p-2.5 sm:p-3 rounded-xl shrink-0 relative z-10 border border-emerald-200/50 dark:border-emerald-800/50 shadow-sm">
-              <Heart className="w-5 h-5 fill-emerald-500 text-emerald-600 dark:text-emerald-400 drop-shadow-sm animate-pulse" />
+          <div className="bg-white dark:bg-slate-900 border-2 border-slate-200 dark:border-slate-800 shadow-xl rounded-2xl p-4 sm:p-5 flex items-start gap-4 max-w-sm relative overflow-hidden group">
+            <div className="bg-slate-100 dark:bg-slate-800 p-3 rounded-xl shrink-0 relative z-10 border border-slate-200 dark:border-slate-700">
+              <Heart className="w-6 h-6 fill-emerald-500 text-emerald-600 dark:text-emerald-400" />
             </div>
 
             <div className="flex-1 pr-6 relative z-10">
-              <h4 className="text-slate-900 dark:text-slate-100 font-bold text-sm sm:text-base mb-1 tracking-tight">
+              <h4 className="text-slate-900 dark:text-slate-100 font-extrabold text-sm sm:text-base mb-1 tracking-tight">
                 100% Free Forever
               </h4>
-              <p className="text-slate-600 dark:text-slate-400 text-[13px] leading-relaxed font-medium">
+              <p className="text-slate-600 dark:text-slate-400 text-[13px] leading-relaxed font-semibold">
                 PathFinder is an open initiative built for the community. Enjoy
                 full access without any paywalls or hidden fees!
               </p>
@@ -243,10 +234,10 @@ export default function Footer() {
 
             <button
               onClick={() => setShowPricingAlert(false)}
-              className="absolute top-3 right-3 text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-lg p-1 transition-colors z-20"
+              className="absolute top-3 right-3 text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 bg-slate-50 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-lg p-1 transition-colors z-20"
               aria-label="Close alert"
             >
-              <X className="w-4 h-4" />
+              <X className="w-5 h-5" />
             </button>
           </div>
         </div>
